@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Scraper</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #ff4500;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        select {
+            background-color: white;
+        }
+        button {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        button:hover {
+            background-color: #e03d00;
+        }
+        .error {
+            color: #e03d00;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff2f0;
+            border-radius: 4px;
+        }
+        .hint {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reddit Data Scraper</h1>
+    
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="subreddits">Subreddits to Scrape</label>
+            <input type="text" id="subreddits" name="subreddits" placeholder="Entrepreneur, SmallBusiness, SideProject" required>
+            <div class="hint">Separate multiple subreddits with commas</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="post_type">Post Type</label>
+            <select id="post_type" name="post_type">
+                <option value="top">Top</option>
+                <option value="hot">Hot</option>
+                <option value="new">New</option>
+                <option value="controversial">Controversial</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="time_filter">Time Range</label>
+            <select id="time_filter" name="time_filter">
+                <option value="day">Past 24 Hours</option>
+                <option value="week" selected>Past Week</option>
+                <option value="month">Past Month</option>
+                <option value="year">Past Year</option>
+                <option value="all">All Time</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="post_limit">Number of Posts (per subreddit)</label>
+            <input type="number" id="post_limit" name="post_limit" value="50" min="1" max="1000">
+        </div>
+        
+        <button type="submit">Start Scraping</button>
+    </form>
+</body>
+</html> 

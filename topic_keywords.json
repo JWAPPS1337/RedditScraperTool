@@ -1,0 +1,38 @@
+{
+    "finance": [
+        "money",
+        "income",
+        "profit",
+        "investment",
+        "cash",
+        "fund"
+    ],
+    "marketing": [
+        "market",
+        "ad",
+        "seo",
+        "affiliate",
+        "email"
+    ],
+    "tech": [
+        "app",
+        "software",
+        "ai",
+        "tech",
+        "python",
+        "code"
+    ],
+    "productivity": [
+        "productivity",
+        "focus",
+        "time management",
+        "habit"
+    ],
+    "video games": [
+        "rpg",
+        "mmo",
+        "beta test",
+        "microtransaction",
+        "high score"
+    ]
+}
